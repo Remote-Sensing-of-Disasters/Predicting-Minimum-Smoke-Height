@@ -33,8 +33,8 @@ def transform(date,time):
         dd= csv.reader(f)
         for i,d in enumerate(dd): #['# ID', 'Year', 'Month', 'Day', 'Time(UTC)', 'Lat', 'Lon', 'Area(km^2)', 'Volcano', 'Level', 'Reliability', 'FRP(Wm^-2)', 'QF', 'Hot(ID)']
             if i>=2:
-                if -4.54<=eval(d[5])<=5.48 and 107.36<=eval(d[6])<=119.0 and d[-4]!='1' and d[-2]!='2':
-                    row, col = int((5.48-eval(d[5]))//0.02), int((eval(d[6])-119.0)//0.02)
+                if -4.54<eval(d[5])<=5.48 and 107.36<=eval(d[6])<119.0 and d[-2]!='2':
+                    row, col = int((5.48-eval(d[5]))/0.02), int((eval(d[6])-107.36.0)/0.02)
                     output_ary[0,row,col]=eval(d[-3])
                     output_ary[1,row,col]=eval(d[-1])
                     output_ary[2,row,col]=eval(d[-7])
